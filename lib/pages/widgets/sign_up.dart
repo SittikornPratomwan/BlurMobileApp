@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:blurmobileapp/theme.dart';
 import 'package:blurmobileapp/widgets/snackbar.dart';
 
 class SignUp extends StatefulWidget {
@@ -205,24 +204,19 @@ class _SignUpState extends State<SignUp> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 340.0),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: CustomTheme.loginGradientStart,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
-                    ),
-                    BoxShadow(
-                      color: CustomTheme.loginGradientEnd,
-                      offset: Offset(1.0, 6.0),
+                      color: Colors.green.withOpacity(0.45),
+                      offset: const Offset(1.0, 6.0),
                       blurRadius: 20.0,
                     ),
                   ],
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                       colors: <Color>[
-                        CustomTheme.loginGradientEnd,
-                        CustomTheme.loginGradientStart
+                        Color(0xFF66BB6A),
+                        Color(0xFF388E3C),
                       ],
                       begin: FractionalOffset(0.2, 0.2),
                       end: FractionalOffset(1.0, 1.0),
@@ -231,8 +225,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 child: MaterialButton(
                   highlightColor: Colors.transparent,
-                  splashColor: CustomTheme.loginGradientEnd,
-                  //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  splashColor: Colors.white24,
                   child: const Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
@@ -246,7 +239,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                   onPressed: () => _toggleSignUpButton(),
                 ),
-              )
+              ),
             ],
           ),
         ],

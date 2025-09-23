@@ -55,13 +55,9 @@ class _LoginPageState extends State<LoginPage>
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 75.0),
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.height > 800 ? 191.0 : 150,
                   width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
                   child: Center(
                     child: Image.asset(
                       'images/log.png',

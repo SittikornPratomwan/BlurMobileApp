@@ -5,22 +5,31 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final items = List.generate(20, (i) => 'Item ${i + 1}');
-    return ListView.separated(
-      padding: const EdgeInsets.all(12),
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: CircleAvatar(child: Text('${index + 1}')),
-          title: Text(items[index]),
-          subtitle: const Text('Tap to open'),
-          onTap: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Tapped ${items[index]}')));
-          },
-        );
-      },
-      separatorBuilder: (_, __) => const Divider(),
-      itemCount: items.length,
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.list, size: 56, color: isDark ? Colors.white70 : Colors.blueAccent),
+          const SizedBox(height: 12),
+          Text(
+            'ไม่มีรายการ',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: isDark ? Colors.white : Colors.black87,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'ยังไม่มีข้อมูลที่จะแสดง',
+            style: TextStyle(
+              fontSize: 14,
+              color: isDark ? Colors.white70 : Colors.black54,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

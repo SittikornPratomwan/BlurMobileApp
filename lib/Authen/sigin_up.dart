@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../theme.dart';
 import '../widgets/snackbar.dart';
 
 class SignUp extends StatefulWidget {
@@ -209,46 +208,40 @@ class _SignUpState extends State<SignUp> {
               ),
               Container(
                 margin: const EdgeInsets.only(top: 340.0),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF2E7D32),
+                  borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: CustomTheme.loginGradientStart,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
+                      color: const Color(0xFF2E7D32).withOpacity(0.35),
+                      offset: const Offset(0.0, 6.0),
+                      blurRadius: 18.0,
                     ),
                     BoxShadow(
-                      color: CustomTheme.loginGradientEnd,
-                      offset: Offset(1.0, 6.0),
-                      blurRadius: 20.0,
+                      color: const Color(0xFF1B5E20).withOpacity(0.18),
+                      offset: const Offset(0.0, 3.0),
+                      blurRadius: 8.0,
                     ),
                   ],
-                  gradient: LinearGradient(
-                      colors: <Color>[
-                        CustomTheme.loginGradientEnd,
-                        CustomTheme.loginGradientStart
-                      ],
-                      begin: FractionalOffset(0.2, 0.2),
-                      end: FractionalOffset(1.0, 1.0),
-                      stops: <double>[0.0, 1.0],
-                      tileMode: TileMode.clamp),
                 ),
-                child: MaterialButton(
-                  highlightColor: Colors.transparent,
-                  splashColor: CustomTheme.loginGradientEnd,
-                  //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                  child: const Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.0, horizontal: 42.0),
-                    child: Text(
-                      'SIGN UP',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25.0,
-                          fontFamily: 'WorkSansBold'),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(5.0),
+                    splashColor: const Color(0xFF1B5E20).withOpacity(0.28),
+                    onTap: () => _toggleSignUpButton(),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 12.0, horizontal: 44.0),
+                      child: Text(
+                        'SIGN UP',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25.0,
+                            fontFamily: 'WorkSansBold'),
+                      ),
                     ),
                   ),
-                  onPressed: () => _toggleSignUpButton(),
                 ),
               )
             ],

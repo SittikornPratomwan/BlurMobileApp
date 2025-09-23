@@ -69,9 +69,10 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.black),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            icon: Icon(
+                            prefixIcon: Icon(
                               FontAwesomeIcons.user,
                               color: Colors.black,
+                              size: 20.0,
                             ),
                             hintText: 'Name',
                             hintStyle: TextStyle(
@@ -101,9 +102,10 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.black),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            icon: Icon(
+                            prefixIcon: Icon(
                               FontAwesomeIcons.envelope,
                               color: Colors.black,
+                              size: 20.0,
                             ),
                             hintText: 'Email Address',
                             hintStyle: TextStyle(
@@ -133,9 +135,10 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            icon: const Icon(
+                            prefixIcon: const Icon(
                               FontAwesomeIcons.lock,
                               color: Colors.black,
+                              size: 20.0,
                             ),
                             hintText: 'Password',
                             hintStyle: const TextStyle(
@@ -175,9 +178,10 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            icon: const Icon(
+                            prefixIcon: const Icon(
                               FontAwesomeIcons.lock,
                               color: Colors.black,
+                              size: 20.0,
                             ),
                             hintText: 'Confirmation',
                             hintStyle: const TextStyle(

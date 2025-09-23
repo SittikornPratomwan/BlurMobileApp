@@ -59,10 +59,10 @@ class _SignInState extends State<SignIn> {
                               color: Colors.black),
                           decoration: const InputDecoration(
                             border: InputBorder.none,
-                            icon: Icon(
+                            prefixIcon: Icon(
                               FontAwesomeIcons.envelope,
                               color: Colors.black,
-                              size: 22.0,
+                              size: 20.0,
                             ),
                             hintText: 'Email Address',
                             hintStyle: TextStyle(
@@ -91,9 +91,9 @@ class _SignInState extends State<SignIn> {
                               color: Colors.black),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            icon: const Icon(
+                            prefixIcon: const Icon(
                               FontAwesomeIcons.lock,
-                              size: 22.0,
+                              size: 20.0,
                               color: Colors.black,
                             ),
                             hintText: 'Password',

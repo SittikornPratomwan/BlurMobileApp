@@ -62,15 +62,19 @@ class _LoginPageState extends State<LoginPage>
                     color: Colors.white.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: const Center(
-                    child: Text(
-                      'BLUR\nAPP',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontFamily: 'WorkSansBold',
+                  child: Center(
+                    child: Image.asset(
+                      'images/log.png',
+                      fit: BoxFit.contain,
+                      height: 120,
+                      errorBuilder: (context, error, stackTrace) => const Text(
+                        'Logo',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontFamily: 'WorkSansBold',
+                        ),
                       ),
                     ),
                   ),
@@ -91,15 +95,9 @@ class _LoginPageState extends State<LoginPage>
                       _currentIndex = i;
                     });
                   },
-                  children: <Widget>[
-                    ConstrainedBox(
-                      constraints: const BoxConstraints.expand(),
-                      child: const SignIn(),
-                    ),
-                    ConstrainedBox(
-                      constraints: const BoxConstraints.expand(),
-                      child: const SignUp(),
-                    ),
+                  children: const <Widget>[
+                    SignIn(),
+                    SignUp(),
                   ],
                 ),
               ),
@@ -120,11 +118,10 @@ class _LoginPageState extends State<LoginPage>
       ),
       child: Stack(
         children: [
-          // Animated white oval background
           AnimatedPositioned(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            left: _currentIndex == 0 ? 4 : 154, // Move from left to right
+            left: _currentIndex == 0 ? 4 : 154,
             top: 4,
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
@@ -136,7 +133,6 @@ class _LoginPageState extends State<LoginPage>
               ),
             ),
           ),
-          // Button row
           Row(
             children: <Widget>[
               Expanded(
@@ -145,9 +141,11 @@ class _LoginPageState extends State<LoginPage>
                   alignment: Alignment.center,
                   child: TextButton(
                     style: ButtonStyle(
-                      overlayColor: MaterialStateProperty.all(Colors.transparent),
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      minimumSize: MaterialStateProperty.all(const Size(150, 50)),
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(150, 50)),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
@@ -159,7 +157,9 @@ class _LoginPageState extends State<LoginPage>
                       child: AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 300),
                         style: TextStyle(
-                            color: _currentIndex == 0 ? Colors.black : Colors.white,
+                            color: _currentIndex == 0
+                                ? Colors.black
+                                : Colors.white,
                             fontSize: 16.0,
                             fontFamily: 'WorkSansSemiBold'),
                         child: const Text('Existing'),
@@ -174,9 +174,11 @@ class _LoginPageState extends State<LoginPage>
                   alignment: Alignment.center,
                   child: TextButton(
                     style: ButtonStyle(
-                      overlayColor: MaterialStateProperty.all(Colors.transparent),
+                      overlayColor:
+                          MaterialStateProperty.all(Colors.transparent),
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
-                      minimumSize: MaterialStateProperty.all(const Size(150, 50)),
+                      minimumSize:
+                          MaterialStateProperty.all(const Size(150, 50)),
                       shape: MaterialStateProperty.all(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
@@ -188,7 +190,9 @@ class _LoginPageState extends State<LoginPage>
                       child: AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 300),
                         style: TextStyle(
-                            color: _currentIndex == 1 ? Colors.black : Colors.white,
+                            color: _currentIndex == 1
+                                ? Colors.black
+                                : Colors.white,
                             fontSize: 16.0,
                             fontFamily: 'WorkSansSemiBold'),
                         child: const Text('New'),

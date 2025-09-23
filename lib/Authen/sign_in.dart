@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // ...existing imports...
 import '../widgets/snackbar.dart';
+import '../Homepage/home.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -143,8 +144,12 @@ class _SignInState extends State<SignIn> {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(5.0),
                     splashColor: const Color(0xFF1B5E20).withOpacity(0.28),
-                    onTap: () => CustomSnackBar(
-                        context, const Text('Login button pressed')),
+                    onTap: () {
+                      // Navigate to Home and replace the current login route
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => const HomePage()),
+                      );
+                    },
                     child: const Padding(
                       padding: EdgeInsets.symmetric(
                           vertical: 12.0, horizontal: 44.0),

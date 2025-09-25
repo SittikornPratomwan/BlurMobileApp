@@ -54,13 +54,21 @@ class AppDrawer extends StatelessWidget {
                     const SnackBar(content: Text('Open Settings')));
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacementNamed('/');
-              },
+            const Spacer(), // Push logout to bottom
+            Container(
+              margin: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: ListTile(
+                leading: const Icon(Icons.logout, color: Colors.white),
+                title: const Text('Logout', style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+              ),
             ),
           ],
         ),

@@ -255,7 +255,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const AddPage()),
           );
         },
-        backgroundColor: isDark ? Colors.lightBlueAccent : Colors.blue,
+        backgroundColor: isDark ? Colors.amber[700] : Colors.orange[700],
         foregroundColor: Colors.white,
         elevation: 8,
         shape: const CircleBorder(),

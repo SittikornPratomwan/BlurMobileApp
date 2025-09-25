@@ -62,16 +62,16 @@ class _LoginPageState extends State<LoginPage>
                     child: Image.asset(
                       'images/log.png',
                       fit: BoxFit.contain,
-                      height: 120,
-                      errorBuilder: (context, error, stackTrace) => const Text(
-                        'Logo',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: 'WorkSansBold',
+                      height: MediaQuery.of(context).size.height > 800 ? 160 : 140,
+                        errorBuilder: (context, error, stackTrace) => const Text(
+                          'Logo',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontFamily: 'WorkSansBold',
+                          ),
                         ),
-                      ),
                     ),
                   ),
                 ),
@@ -152,12 +152,10 @@ class _LoginPageState extends State<LoginPage>
                     child: Center(
                       child: AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 300),
-                        style: TextStyle(
-                            color: _currentIndex == 0
-                                ? Colors.black
-                                : Colors.white,
-                            fontSize: 16.0,
-                            fontFamily: 'WorkSansSemiBold'),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+              fontFamily: 'WorkSansSemiBold'),
                         child: const Text('Existing'),
                       ),
                     ),
@@ -185,12 +183,10 @@ class _LoginPageState extends State<LoginPage>
                     child: Center(
                       child: AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 300),
-                        style: TextStyle(
-                            color: _currentIndex == 1
-                                ? Colors.black
-                                : Colors.white,
-                            fontSize: 16.0,
-                            fontFamily: 'WorkSansSemiBold'),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16.0,
+              fontFamily: 'WorkSansSemiBold'),
                         child: const Text('New'),
                       ),
                     ),

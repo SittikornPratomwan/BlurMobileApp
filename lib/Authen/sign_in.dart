@@ -174,7 +174,7 @@ class _SignInState extends State<SignIn> {
                   'Forgot Password?',
                   style: TextStyle(
                       decoration: TextDecoration.underline,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 16.0,
                       fontFamily: 'WorkSansMedium'),
                 )),
@@ -188,8 +188,8 @@ class _SignInState extends State<SignIn> {
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         colors: <Color>[
-                          Colors.white10,
-                          Colors.white,
+                          Colors.black26,
+                          Colors.black54,
                         ],
                         begin: FractionalOffset(0.0, 0.0),
                         end: FractionalOffset(1.0, 1.0),
@@ -204,7 +204,7 @@ class _SignInState extends State<SignIn> {
                   child: Text(
                     'Or',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 16.0,
                         fontFamily: 'WorkSansMedium'),
                   ),
@@ -213,8 +213,8 @@ class _SignInState extends State<SignIn> {
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
                         colors: <Color>[
-                          Colors.white,
-                          Colors.white10,
+                          Colors.black54,
+                          Colors.black26,
                         ],
                         begin: FractionalOffset(0.0, 0.0),
                         end: FractionalOffset(1.0, 1.0),

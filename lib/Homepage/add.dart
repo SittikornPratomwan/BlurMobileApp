@@ -36,7 +36,7 @@ class _AddPageState extends State<AddPage> {
 			backgroundColor: Colors.white,
 			appBar: AppBar(
 				title: const Text('แจ้งซ่อม'),
-				backgroundColor: Colors.blue,
+				backgroundColor: Colors.deepPurple[300],
 				foregroundColor: Colors.white,
 			),
 			body: Padding(
@@ -80,6 +80,7 @@ class _AddPageState extends State<AddPage> {
 								child: const Text('ส่งคำขอ'),
 								style: ElevatedButton.styleFrom(
 									backgroundColor: Colors.green,
+									foregroundColor: Colors.white,
 								),
 							),
 						],

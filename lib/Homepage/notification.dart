@@ -9,13 +9,13 @@ class NotificationPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('การแจ้งเตือน'),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.deepPurple[300],
         foregroundColor: Colors.white,
       ),
       body: Center(
         child: Text(
           'ยังไม่มีการแจ้งเตือน',
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(color: Colors.deepPurple[700]),
         ),
       ),
     );

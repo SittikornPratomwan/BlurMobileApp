@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'setting.dart';
 
 /// Reusable app drawer moved out of home.dart
 class AppDrawer extends StatelessWidget {
@@ -14,9 +15,9 @@ class AppDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             DrawerHeader(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.deepPurple, Colors.deepPurpleAccent],
+                  colors: [Colors.deepPurple[300]!, Colors.deepPurple[200]!],
                 ),
               ),
               child: Column(
@@ -37,8 +38,8 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
+              leading: const Icon(Icons.history),
+              title: const Text('ประวัติ'),
               onTap: () {
                 Navigator.of(context).pop();
                 if (onPageChanged != null) onPageChanged!(0);
@@ -49,9 +50,12 @@ class AppDrawer extends StatelessWidget {
               title: const Text('Settings'),
               onTap: () {
                 Navigator.of(context).pop();
-                if (onPageChanged != null) onPageChanged!(1);
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Open Settings')));
+                // Navigate directly to the settings page
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const SettingPage(),
+                  ),
+                );
               },
             ),
             const Spacer(), // Push logout to bottom

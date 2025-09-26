@@ -36,6 +36,7 @@ class _AddPageState extends State<AddPage> {
 			backgroundColor: Colors.white,
 			appBar: AppBar(
 				title: const Text('แจ้งซ่อม'),
+				centerTitle: true,
 				backgroundColor: Colors.deepPurple[300],
 				foregroundColor: Colors.white,
 			),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'add.dart';
 import 'list.dart';
-import '../Drawer/drawer.dart';
-import 'notification.dart';
+import '../widgets/appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,35 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  // จำนวนการแจ้งเตือนที่ยังไม่ได้อ่าน (จำลอง)
-  int _unreadNotificationCount = 2;
-
-  @override
-  void initState() {
-    super.initState();
-    // จำลองการอัพเดทการแจ้งเตือนแบบ real-time
-    _simulateNotificationUpdates();
-  }
-
-  // ฟังก์ชันจำลองการอัพเดทการแจ้งเตือน
-  void _simulateNotificationUpdates() {
-    // จำลองการแจ้งเตือนใหม่เข้ามาทุก 30 วินาที
-    Future.delayed(const Duration(seconds: 30), () {
-      if (mounted) {
-        setState(() {
-          _unreadNotificationCount += 1;
-        });
-        _simulateNotificationUpdates(); // เรียกซ้ำ
-      }
-    });
-  }
-
-  // (notification adding removed - simulation continues via _simulateNotificationUpdates)
-  
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -52,88 +22,37 @@ class _HomePageState extends State<HomePage> {
       }
     });
   }
-  // ฟังก์ชันกำหนดสีตามหมวดหมู่ (removed - kept placeholder in case needed later)
 
-  // Widget สำหรับไอคอนการแจ้งเตือนพร้อมจุดแดง
-  Widget _buildNotificationIcon() {
-    return Stack(
-      children: [
-        const Icon(Icons.notifications),
-        if (_unreadNotificationCount > 0)
-          Positioned(
-            right: 2,
-            top: 2,
-            child: Container(
-              width: 8,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 1),
-              ),
-            ),
-          ),
-      ],
-    );
+  String getPageName() {
+    switch (_selectedIndex) {
+      case 0:
+        return 'หน้าแรก';
+      case 1:
+        return 'แจ้งซ่อม';
+      case 2:
+        return 'รายการ';
+      default:
+        return 'หน้าแรก';
+    }
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
-    // ชื่อหน้าตาม tab ที่เลือก
-    String getPageName() {
-      switch (_selectedIndex) {
-        case 0:
-          return 'หน้าแรก';
-        case 1:
-          return 'แจ้งซ่อม';
-        case 2:
-          return 'รายการ';
-        default:
-          return 'หน้าแรก';
-      }
-    }
-    
-    return Scaffold(
-      drawer: AppDrawer(
-        onPageChanged: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
-      appBar: AppBar(
-        title: Text(
-          getPageName(),
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.deepPurple[300],
-        iconTheme: const IconThemeData(color: Colors.white),
-        actions: [
-          IconButton(
-            icon: _buildNotificationIcon(),
-            tooltip: 'Notifications',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const NotificationPage(),
-                ),
-              ).then((_) {
-                // อัพเดทจำนวนการแจ้งเตือนหลังจากกลับมาจากหน้า notification
-                setState(() {
-                  _unreadNotificationCount = 0; // จำลองการอ่านแจ้งเตือนทั้งหมด
-                });
-              });
-            },
-          ),
-        ],
-      ),
+    return AppScaffold(
+      title: getPageName(),
+      currentIndex: _selectedIndex,
+      onTabSelected: _onItemTapped,
+      onPageChanged: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      onFabPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AddPage()),
+        );
+      },
       body: IndexedStack(
         index: _selectedIndex,
         children: [
@@ -145,63 +64,6 @@ class _HomePageState extends State<HomePage> {
           const ListPage(),
         ],
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Colors.deepPurple[50],
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 0,
-              blurRadius: 10,
-              offset: const Offset(0, -2),
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25),
-          ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'หน้าแรก',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.list),
-                label: 'รายการ',
-              ),
-            ],
-            currentIndex: _selectedIndex == 2 ? 1 : _selectedIndex,
-            selectedItemColor: Colors.deepPurple,
-            unselectedItemColor: Colors.black54,
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            onTap: _onItemTapped,
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const AddPage()),
-          );
-        },
-        backgroundColor: Colors.orange[700],
-        foregroundColor: Colors.white,
-        elevation: 8,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.build, size: 28),
-        tooltip: 'แจ้งซ่อม',
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

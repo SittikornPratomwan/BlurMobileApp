@@ -5,13 +5,17 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(title: const Text('การแจ้งเตือน')),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text('การแจ้งเตือน'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+      ),
       body: Center(
         child: Text(
           'ยังไม่มีการแจ้งเตือน',
-          style: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
+          style: TextStyle(color: Colors.black87),
         ),
       ),
     );

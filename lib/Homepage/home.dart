@@ -81,8 +81,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-  final isDark = Theme.of(context).brightness == Brightness.dark;
-    
     // ชื่อหน้าตาม tab ที่เลือก
     String getPageName() {
       switch (_selectedIndex) {
@@ -114,7 +112,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: isDark ? Colors.lightBlueAccent : Colors.blue,
+        backgroundColor: Colors.blue,
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           IconButton(
@@ -145,22 +143,9 @@ class _HomePageState extends State<HomePage> {
             constraints: BoxConstraints(
               minHeight: MediaQuery.of(context).size.height,
             ),
-            decoration: isDark
-                ? const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF232526), Color(0xFF414345)],
-                    ),
-                  )
-                : const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      // Use two light-blue tones so it doesn't turn white at the bottom
-                      colors: [Color(0xFFB0D0F0), Color(0xFFDCEBFA)],
-                    ),
-                  ),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+            ),
             child: SingleChildScrollView(
               padding: EdgeInsets.zero,
               child: Padding(
@@ -174,14 +159,14 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.home, size: 56, color: isDark ? Colors.white70 : Colors.blueAccent),
+                        Icon(Icons.home, size: 56, color: Colors.blueAccent),
                         const SizedBox(height: 12),
                         Text(
                           'หน้าแรก',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: isDark ? Colors.white : Colors.black87,
+                            color: Colors.black87,
                           ),
                         ),
                         const SizedBox(height: 6),
@@ -189,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                           'ไม่มีรายการแสดง',
                           style: TextStyle(
                             fontSize: 14,
-                            color: isDark ? Colors.white70 : Colors.black54,
+                            color: Colors.black54,
                           ),
                         ),
                       ],
@@ -208,7 +193,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: isDark ? const Color(0xFF232526) : const Color(0xFFE3F2FD),
+          color: const Color(0xFFE3F2FD),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(25),
             topRight: Radius.circular(25),
@@ -240,8 +225,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
             currentIndex: _selectedIndex == 2 ? 1 : _selectedIndex,
-            selectedItemColor: isDark ? Colors.lightBlueAccent : Colors.blue,
-            unselectedItemColor: isDark ? Colors.white54 : Colors.black54,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: Colors.black54,
             backgroundColor: Colors.transparent,
             elevation: 0,
             onTap: _onItemTapped,
@@ -255,7 +240,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const AddPage()),
           );
         },
-        backgroundColor: isDark ? Colors.amber[700] : Colors.orange[700],
+        backgroundColor: Colors.orange[700],
         foregroundColor: Colors.white,
         elevation: 8,
         shape: const CircleBorder(),

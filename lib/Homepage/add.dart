@@ -33,7 +33,12 @@ class _AddPageState extends State<AddPage> {
 		@override
 		Widget build(BuildContext context) {
 		return Scaffold(
-			appBar: AppBar(title: const Text('แจ้งซ่อม')),
+			backgroundColor: Colors.white,
+			appBar: AppBar(
+				title: const Text('แจ้งซ่อม'),
+				backgroundColor: Colors.blue,
+				foregroundColor: Colors.white,
+			),
 			body: Padding(
 				padding: const EdgeInsets.all(16.0),
 				child: Form(

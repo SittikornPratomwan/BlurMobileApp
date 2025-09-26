@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.deepPurple[300],
         iconTheme: const IconThemeData(color: Colors.white),
         actions: [
           IconButton(
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: const Color(0xFFE3F2FD),
+          color: Colors.deepPurple[50],
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(25),
             topRight: Radius.circular(25),
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
             currentIndex: _selectedIndex == 2 ? 1 : _selectedIndex,
-            selectedItemColor: Colors.blue,
+            selectedItemColor: Colors.deepPurple,
             unselectedItemColor: Colors.black54,
             backgroundColor: Colors.transparent,
             elevation: 0,

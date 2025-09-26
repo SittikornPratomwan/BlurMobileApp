@@ -137,54 +137,8 @@ class _HomePageState extends State<HomePage> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          // หน้าแรก
-          Container(
-            // Ensure the background gradient covers the full screen height
-            constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height,
-            ),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-            ),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                  // Home page simplified per request - no lists shown
-                  const SizedBox(height: 24),
-                  Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.home, size: 56, color: Colors.blueAccent),
-                        const SizedBox(height: 12),
-                        Text(
-                          'หน้าแรก',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                          ),
-                        ),
-                        const SizedBox(height: 6),
-                        Text(
-                          'ไม่มีรายการแสดง',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black54,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+          // หน้าแรก: ว่างเปล่า
+          Container(color: Colors.white),
           // หน้าแจ้งซ่อม
           const AddPage(),
           // หน้ารายการ

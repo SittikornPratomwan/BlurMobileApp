@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'setting.dart';
+import 'history.dart';
 
 /// Reusable app drawer moved out of home.dart
 class AppDrawer extends StatelessWidget {
@@ -39,10 +40,14 @@ class AppDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.history),
-              title: const Text('ประวัติ'),
+              title: const Text('history'),
               onTap: () {
                 Navigator.of(context).pop();
-                if (onPageChanged != null) onPageChanged!(0);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => const HistoryPage(),
+                  ),
+                );
               },
             ),
             ListTile(
